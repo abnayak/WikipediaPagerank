@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="wikipediapagerank">
+    <output-path>$PROJECT_DIR$/out/artifacts/wikipediapagerank</output-path>
+    <root id="archive" name="wikipediapagerank.jar">
+      <element id="module-output" name="wikipediapagerank" />
+    </root>
+  </artifact>
+</component>
