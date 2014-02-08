@@ -9,6 +9,7 @@
     <list default="true" id="ce4a3465-24f4-411b-9a19-acbd89b6a927" name="Default" comment="Initial commit.&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# Explicit paths specified without -i nor -o; assuming --only paths...&#10;# On branch master&#10;#&#10;# Initial commit&#10;#&#10;# Changes to be committed:&#10;#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)&#10;#&#10;#&#9;new file:   .idea/artifacts/wikipediapagerank.xml&#10;#&#9;new file:   .idea/uiDesigner.xml&#10;#&#10;# Untracked files:&#10;#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)&#10;#&#10;#&#9;.idea/.name&#10;#&#9;.idea/compiler.xml&#10;#&#9;.idea/copyright/&#10;#&#9;.idea/encodings.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;#&#9;.idea/scopes/&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;clean.sh&#10;#&#9;input/&#10;#&#9;out/&#10;#&#9;src/&#10;#&#9;wikipediapagerank.iml&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/test.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/RankingMapper.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/RankingReducer.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LinkCounterReducer.java" afterPath="$PROJECT_DIR$/src/LinkCounterReducer.java" />
@@ -18,7 +19,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RankCalculateReducer.java" afterPath="$PROJECT_DIR$/src/RankCalculateReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SortMapper.java" afterPath="$PROJECT_DIR$/src/SortMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Wikipediapagerank.java" afterPath="$PROJECT_DIR$/src/Wikipediapagerank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input/test.xml" afterPath="$PROJECT_DIR$/input/test.xml" />
     </list>
     <ignored path="wikipediapagerank.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,30 +82,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input/test.xml">
+      <file leaf-file-name="Wikipediapagerank.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="41" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RankCalculateReducer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/RankCalculateReducer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="34" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.6062992" vertical-offset="759" max-vertical-offset="1230">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RankCalculateReducerStage1.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RankCalculateReducerStage1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="849" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="555">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-6.1" vertical-offset="3660" max-vertical-offset="4260">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,10 +113,10 @@
         <option value="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
         <option value="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
         <option value="$PROJECT_DIR$/src/SortMapper.java" />
-        <option value="$PROJECT_DIR$/src/Wikipediapagerank.java" />
         <option value="$PROJECT_DIR$/src/RankCalculateMapper.java" />
         <option value="$PROJECT_DIR$/input/test.xml" />
         <option value="$PROJECT_DIR$/src/RankCalculateReducer.java" />
+        <option value="$PROJECT_DIR$/src/Wikipediapagerank.java" />
       </list>
     </option>
   </component>
@@ -210,6 +190,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wikipediapagerank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipediapagerank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipediapagerank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,12 +487,12 @@
       <created>1391822802478</created>
       <updated>1391822802478</updated>
       <workItem from="1391822804384" duration="264000" />
-      <workItem from="1391823085660" duration="15235000" />
+      <workItem from="1391823085660" duration="16013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15499000" />
+    <option name="totallyTimeSpent" value="16277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1311" height="773" extended-state="6" />
@@ -523,7 +517,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24861878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32854864" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -654,28 +648,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="19" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0" vertical-offset="562" max-vertical-offset="4275">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RankCalculateMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="46" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="960">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input/test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="41" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,6 +669,15 @@
     <entry file="file://$PROJECT_DIR$/src/RankCalculateReducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="34" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.6062992" vertical-offset="759" max-vertical-offset="1230">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-6.1" vertical-offset="3660" max-vertical-offset="4260">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

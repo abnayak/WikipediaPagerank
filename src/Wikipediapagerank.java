@@ -26,31 +26,30 @@ public class Wikipediapagerank {
     public static void main(String[] args) throws Exception {
         Wikipediapagerank mainObject = new Wikipediapagerank();
 
+        String input=args[0];
+        String output=args[1];
+
         int noOfIterations = 8;
-        String Bucket = "results/";
-        String XMLInput=args[1];
+        String Bucket = output + "/results/";
+        String tmpLoc = output + "/tmp/";
 
-        String OutlinkOutputStage1="PageRank.outlink.stage1.out";
+        //Predefined locations for results output
         String OutlinkOutput="PageRank.outlink.out";
-
+        String OutlinkOutputStage1="PageRank.outlink.stage1.out";
         String LinkCounterOuput="PageRank.n.out";
-        String finalOutput = "PageRanks";
-
-        String tmpLoc = "tmp/";
 
         String[] iterations = new String[noOfIterations+1];
-        //iterations[0] = OutlinkOutput;
 
         for ( int i =0; i <= noOfIterations ; i++){
             iterations[i] = "PageRank.iter" + Integer.toString(i) +".out";
         }
 
         //Call to the in-link generation Hadoop task
-        mainObject.OutlinkGenrationJob1(XMLInput, tmpLoc + OutlinkOutputStage1);
+        mainObject.OutlinkGenrationJob1(input, tmpLoc + OutlinkOutputStage1);
         mainObject.OutlinkGenrationJob2(tmpLoc + OutlinkOutputStage1, Bucket + OutlinkOutput );
 
         //Count the total no of pages in the xml dump file
-        mainObject.InlinkCountGenerationJob(XMLInput, Bucket + LinkCounterOuput);
+        mainObject.InlinkCountGenerationJob(input, Bucket + LinkCounterOuput);
 
         //Convert the out-link to rank calculation format
         mainObject.RunCalculatorStage1(Bucket + OutlinkOutput, tmpLoc + iterations[0], Bucket + LinkCounterOuput);
@@ -60,9 +59,9 @@ public class Wikipediapagerank {
             mainObject.RankCalculatorJob(tmpLoc + iterations[i-1], tmpLoc +iterations[i], Bucket + LinkCounterOuput);
         }
 
-        //Sort the pages according to their page rank for iteration 1 and 8
+        //Sort the pages according to their page rank for iteration 1 and 8 and write to results
         mainObject.SortJob(tmpLoc + iterations[1], Bucket + iterations[1]);
-        mainObject.SortJob(tmpLoc + iterations[1], Bucket + iterations[noOfIterations]);
+        mainObject.SortJob(tmpLoc + iterations[8], Bucket + iterations[noOfIterations]);
     }
 
     public void OutlinkGenrationJob1(String input, String output) throws IOException {
