@@ -21,7 +21,6 @@ public class SortMapper extends MapReduceBase implements Mapper<LongWritable, Te
         String svalues = value.toString();
 
         int titleEndIndex = svalues.indexOf("\t");
-
         int rankEndIndex = svalues.indexOf( "\t", titleEndIndex+1);
 
         if ( rankEndIndex == -1){
@@ -31,8 +30,7 @@ public class SortMapper extends MapReduceBase implements Mapper<LongWritable, Te
         String srank = svalues.substring(titleEndIndex+1,rankEndIndex);
 
         double rank = Double.parseDouble(srank);
-        rank = -1.0 * rank;
 
-        output.collect(new DoubleWritable(rank), new Text(svalues.substring(0,titleEndIndex)));
+        output.collect(new DoubleWritable(Double.parseDouble(srank)), new Text(svalues.substring(0,titleEndIndex)));
     }
 }

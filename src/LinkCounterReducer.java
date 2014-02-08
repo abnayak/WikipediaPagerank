@@ -15,19 +15,17 @@ import org.apache.hadoop.mapred.Reducer;
 import org.apache.hadoop.mapred.Reporter;
 
 
-public class LinkCounterReducer extends MapReduceBase implements Reducer<LongWritable, NullWritable, LongWritable, NullWritable> {
+public class LinkCounterReducer extends MapReduceBase implements Reducer<LongWritable, NullWritable, Text, NullWritable> {
 
-    public void reduce(LongWritable key, Iterator<NullWritable> values, OutputCollector<LongWritable, NullWritable> output, Reporter reporter) throws IOException {
+    public void reduce(LongWritable key, Iterator<NullWritable> values, OutputCollector<Text, NullWritable> output, Reporter reporter) throws IOException {
 
-        long count = 1;
+        long count = 0;
 
         while(values.hasNext()){
             values.next();
             count++;
         }
 
-        LongWritable result = new LongWritable(count);
-
-        output.collect(result, NullWritable.get());
+        output.collect(new Text("N=" + Long.toString(count)), NullWritable.get());
     }
 }

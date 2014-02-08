@@ -27,7 +27,7 @@ public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWri
         Pattern p = Pattern.compile("\\[\\[(.*?)\\]\\]");
         Matcher m = p.matcher(txt);
 
-        //handle the red links
+        //This part handles the red links
         output.collect(new Text(title), new Text("#"));
 
         while(m.find()) {
@@ -40,10 +40,8 @@ public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWri
             {
                 if(temp.contains("|")){
                     output.collect(new Text(temp.substring(0, temp.indexOf("|")).replace(" ", "_")), new Text(title) );
-                    //output.collect(new Text(title), new Text(temp.substring(0, temp.indexOf("|")).replace(" ", "_")) );
                 }
                 else{
-                    //output.collect(new Text(title), new Text(temp.replace(" ","_")) );
                     output.collect( new Text(temp.replace(" ","_")), new Text(title) );
                 }
             }

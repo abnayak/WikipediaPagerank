@@ -16,19 +16,6 @@ public class RankCalculateMapper extends MapReduceBase implements Mapper<LongWri
 
     public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
 
-//        String wholeString = value.toString();
-//        wholeString = wholeString.replace("\n", "").replace("\r", "");
-//
-//        String[] parts =  wholeString.split("\t");
-//
-//        String FromTitle = parts[0];
-//        String Rank = parts[1];
-//        long noOfOutlinks = parts.length - 2;
-//
-//        for(int i = 2 ; i < parts.length ; i++){
-//            output.collect(new Text(parts[i] ), new Text( FromTitle+"\t"+Rank+"\t" + Long.toString(noOfOutlinks)));
-//        }
-
         //assuming each line has page title, rank and list of outlinks
         String svalue = value.toString();
         String[] parts = svalue.split("\t");

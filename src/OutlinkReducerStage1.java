@@ -27,29 +27,6 @@ public class OutlinkReducerStage1 extends MapReduceBase implements Reducer<Text,
             count++;
         }
 
-        //Read all the elements from the set and append in the StringBuilder
-
-//        while(i.hasNext()){
-//            String newVal = (String) i.next();
-//
-//            //if ( count == 1 && newVal.equals("#") ){
-//              //  output.collect(key, new Text("#"));
-//               // break;
-//            //}
-//
-//            if ( newVal.equals("#"))
-//                isRedLink = false;
-//
-//            if(!isRedLink && !newVal.equals("#"))
-//            {
-//                output.collect(new Text(newVal), key);
-//            }
-//        }
-//
-//        if ( set.size() == 1 && !isRedLink )
-//            output.collect(new Text(), key);
-//
-
         if ( set.size() == 1){
             //if the page is a sink
             if (set.contains("#")){
@@ -65,13 +42,5 @@ public class OutlinkReducerStage1 extends MapReduceBase implements Reducer<Text,
                 }
             }
         }
-
-//        double rank = 1.0/6299;
-//
-//        if ( outlinks.length() != 0){
-//            output.collect(key,new Text(Double.toString(rank)+outlinks.toString()));
-//        }else{
-//            output.collect(key,new Text(Double.toString(rank)));
-//        }
     }
 }
