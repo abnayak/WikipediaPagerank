@@ -10,6 +10,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/input/test.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/InlinkMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/InlinkReducer.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/RankingMapper.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/RankingReducer.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LinkCounterReducer.java" afterPath="$PROJECT_DIR$/src/LinkCounterReducer.java" />
@@ -487,12 +489,12 @@
       <created>1391822802478</created>
       <updated>1391822802478</updated>
       <workItem from="1391822804384" duration="264000" />
-      <workItem from="1391823085660" duration="16013000" />
+      <workItem from="1391823085660" duration="16069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16277000" />
+    <option name="totallyTimeSpent" value="16333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1311" height="773" extended-state="6" />
@@ -562,23 +564,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InlinkMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="468" selection-end="468" vertical-scroll-proportion="0.07964602" vertical-offset="0" max-vertical-offset="2385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="41" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.4599659" vertical-offset="0" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InlinkReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.051107325" vertical-offset="0" max-vertical-offset="587">
           <folding />
         </state>
       </provider>
