@@ -57,14 +57,14 @@ public class RankCalculateReducer extends MapReduceBase implements Reducer<Text,
                 if (svalue.equals("#")){
                     pageWithoutOutlinks = true;
                 }else{
-                    votes += Double.parseDouble(svalue);
+                    votes += Double.parseDouble(svalue) / N;
                 }
 
             }
         }
 
         if (!redLink){
-            rank = ((1-d)/N) + d * votes ;
+            rank = (0.15f / N) + d * votes ;
 
             //If the page is a sink only print the title and rank
             if (pageWithoutOutlinks){

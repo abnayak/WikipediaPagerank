@@ -1,4 +1,3 @@
-<page><title>A</title><text> [[B]] [[D]] </text></page> 
-<page><title>B</title><text> </text></page> 
-<page><title>D</title><text> [[C]] </text></page> 
-<page><title>E</title><text> </text></page> 
+<page><title>B</title><text> [[A]] </text></page>
+<page><title>C</title><text> [[A]] [[D]] </text></page>
+<page><title>A</title><text>  </text></page>

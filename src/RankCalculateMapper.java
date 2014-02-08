@@ -28,7 +28,7 @@ public class RankCalculateMapper extends MapReduceBase implements Mapper<LongWri
         int outlinkCount = 0;
         double rankVote=0.0;
 
-        //if no of parts > 2 then only we have outlinks otherwise its null
+        //If no of parts > 2 then only we have outlinks otherwise its null
         if ( parts.length > 2){
             int titleEndIndex = svalue.indexOf("\t");
             int rankEndIndex = svalue.indexOf("\t",titleEndIndex+1);
@@ -40,12 +40,12 @@ public class RankCalculateMapper extends MapReduceBase implements Mapper<LongWri
             rankVote = Double.parseDouble(rank)/outlinkCount;
         }
 
-        //send this to notify if the page is a existing page or not
+        //send this to notify if the page is a existing page or not(to avoid red links)
         output.collect(new Text(title), new Text("$\t"));
 
         //reconstruct the page title, rank and outlinks
         if ( rankOutlinks.equals("") ){
-            //here there is no use of
+            //this signifies this page is sink
             output.collect(new Text(title), new Text("#"));
         }else{
             output.collect(new Text(title), new Text("#" + rankOutlinks));
