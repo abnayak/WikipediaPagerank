@@ -27,6 +27,7 @@ public class OutlinkReducerStage2 extends MapReduceBase implements Reducer<Text,
                 if ( !val.equals("#") )
                     temp.append(val + "\t");
             }
+
             if (temp.length() > 0)
                 temp.deleteCharAt(temp.length() - 1);
 

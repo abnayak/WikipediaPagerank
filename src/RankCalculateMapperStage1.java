@@ -22,7 +22,7 @@ public class RankCalculateMapperStage1 extends MapReduceBase implements Mapper<L
         int titleEndIndex = svalue.indexOf("\t");
         String title = svalue.substring(0,titleEndIndex);
 
-        String links = svalue.substring(titleEndIndex + 1, svalue.length() );
+        String links = svalue.substring(titleEndIndex + 1);
 
         output.collect(new Text(title), new Text(links));
     }

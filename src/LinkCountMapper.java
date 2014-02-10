@@ -22,12 +22,6 @@ public class LinkCountMapper extends MapReduceBase implements Mapper<LongWritabl
 
         String title = "";
 
-        //title = page.substring(page.indexOf("<title>")+7, page.indexOf("</title>"));
-
-        int index = page.indexOf(("<title>"));
-
-        if ( index != -1){
-            output.collect(one, NullWritable.get());
-        }
+        output.collect(one, NullWritable.get());
     }
 }

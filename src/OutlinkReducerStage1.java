@@ -27,20 +27,26 @@ public class OutlinkReducerStage1 extends MapReduceBase implements Reducer<Text,
             count++;
         }
 
-        if ( set.size() == 1){
-            //if the page is a sink
-            if (set.contains("#")){
-                output.collect(key, new Text("#"));
-            }
+//        if ( set.size() == 1){
+//            //if the page is a sink
+//            if (set.contains("#")){
+//                output.collect(key, new Text("#"));
+//            }
+//
+//        }else{
 
-        }else{
             if (set.contains("#")){
                 Iterator i = set.iterator();
                 while ( i.hasNext()){
                     String val = (String) i.next();
-                    output.collect(new Text(val), key);
+                    if ( !val.equals("#"))
+                        output.collect(new Text(val), key);
+                    else {
+                        output.collect( key, new Text("#"));
+                    }
                 }
             }
-        }
+
+        //}
     }
 }

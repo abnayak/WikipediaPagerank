@@ -20,12 +20,12 @@ public class RankCalculateReducerStage1 extends MapReduceBase implements Reducer
     }
 
     public void reduce(Text key, Iterator<Text> values, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
-        float N = 1.0f / Integer.parseInt(count);
+        double N = 1.0 / Integer.parseInt(count);
         String svalues="";
 
         while (values.hasNext())
             svalues = values.next().toString();
 
-        output.collect(key, new Text(Float.toString(N) + "\t" + svalues) );
+        output.collect(key, new Text(Double.toString(N) + "\t" + svalues) );
     }
 }

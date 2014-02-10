@@ -2,25 +2,25 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="wikipediapagerank" />
+      <artifact name="Wikipediapagerank" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce4a3465-24f4-411b-9a19-acbd89b6a927" name="Default" comment="Initial commit.&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# Explicit paths specified without -i nor -o; assuming --only paths...&#10;# On branch master&#10;#&#10;# Initial commit&#10;#&#10;# Changes to be committed:&#10;#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)&#10;#&#10;#&#9;new file:   .idea/artifacts/wikipediapagerank.xml&#10;#&#9;new file:   .idea/uiDesigner.xml&#10;#&#10;# Untracked files:&#10;#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)&#10;#&#10;#&#9;.idea/.name&#10;#&#9;.idea/compiler.xml&#10;#&#9;.idea/copyright/&#10;#&#9;.idea/encodings.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;#&#9;.idea/scopes/&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;clean.sh&#10;#&#9;input/&#10;#&#9;out/&#10;#&#9;src/&#10;#&#9;wikipediapagerank.iml&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/input/test.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/InlinkMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/InlinkReducer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/RankingMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/RankingReducer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/wikipediapagerank.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LinkCountMapper.java" afterPath="$PROJECT_DIR$/src/LinkCountMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LinkCounterReducer.java" afterPath="$PROJECT_DIR$/src/LinkCounterReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OutlinkMapperStage1.java" afterPath="$PROJECT_DIR$/src/OutlinkMapperStage1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OutlinkReducerStage1.java" afterPath="$PROJECT_DIR$/src/OutlinkReducerStage1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RankCalculateMapper.java" afterPath="$PROJECT_DIR$/src/RankCalculateMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OutlinkReducerStage2.java" afterPath="$PROJECT_DIR$/src/OutlinkReducerStage2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" afterPath="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RankCalculateReducer.java" afterPath="$PROJECT_DIR$/src/RankCalculateReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SortMapper.java" afterPath="$PROJECT_DIR$/src/SortMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" afterPath="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SortReducer.java" afterPath="$PROJECT_DIR$/src/SortReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Wikipediapagerank.java" afterPath="$PROJECT_DIR$/src/Wikipediapagerank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inputs/test.xml" afterPath="$PROJECT_DIR$/inputs/test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inputs/test1.xml" afterPath="$PROJECT_DIR$/inputs/test1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wikipediapagerank.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,6 +75,7 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -84,13 +85,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Wikipediapagerank.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
+      <file leaf-file-name="LinkCountMapper.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/LinkCountMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.975" vertical-offset="585" max-vertical-offset="4260">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="25" column="4" selection-start="936" selection-end="936" vertical-scroll-proportion="0.3321976" vertical-offset="0" max-vertical-offset="587">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,16 +108,20 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/WikipediaInlinkGeneration.java" />
-        <option value="$PROJECT_DIR$/src/OutlinkReducerStage1.java" />
-        <option value="$PROJECT_DIR$/src/OutlinkMapperStage1.java" />
-        <option value="$PROJECT_DIR$/src/LinkCounterReducer.java" />
-        <option value="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
-        <option value="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
         <option value="$PROJECT_DIR$/src/SortMapper.java" />
         <option value="$PROJECT_DIR$/src/RankCalculateMapper.java" />
         <option value="$PROJECT_DIR$/input/test.xml" />
-        <option value="$PROJECT_DIR$/src/RankCalculateReducer.java" />
+        <option value="$PROJECT_DIR$/results/PageRank.n.out/part-00000" />
+        <option value="$PROJECT_DIR$/src/OutlinkMapperStage1.java" />
+        <option value="$PROJECT_DIR$/src/OutlinkReducerStage2.java" />
+        <option value="$PROJECT_DIR$/src/OutlinkReducerStage1.java" />
+        <option value="$PROJECT_DIR$/src/RankCalculateReducerStage1.java" />
+        <option value="$PROJECT_DIR$/src/SortReducer.java" />
         <option value="$PROJECT_DIR$/src/Wikipediapagerank.java" />
+        <option value="$PROJECT_DIR$/src/RankCalculateMapperStage1.java" />
+        <option value="$PROJECT_DIR$/src/RankCalculateReducer.java" />
+        <option value="$PROJECT_DIR$/src/LinkCounterReducer.java" />
+        <option value="$PROJECT_DIR$/src/LinkCountMapper.java" />
       </list>
     </option>
   </component>
@@ -177,6 +180,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -195,23 +199,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wikipediapagerank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wikipediapagerank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="input" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -226,7 +215,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -287,17 +276,23 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
       <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -328,23 +323,17 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -383,6 +372,25 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -418,30 +426,11 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
     <configuration default="false" name="WikiRank" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Wikipediapagerank" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/out/artifacts/wikipediapagerank/wikipediapagerank.jar input output" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/out/artifacts/wikipediapagerank/wikipediapagerank.jar input ." />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -475,26 +464,29 @@
       <created>1391822802478</created>
       <updated>1391822802478</updated>
       <workItem from="1391822804384" duration="264000" />
-      <workItem from="1391823085660" duration="16135000" />
+      <workItem from="1391823085660" duration="22066000" />
+      <workItem from="1391878596204" duration="14612000" />
+      <workItem from="1391915195908" duration="5415000" />
+      <workItem from="1391989952826" duration="11499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16399000" />
+    <option name="totallyTimeSpent" value="53856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1311" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34290272" sideWeight="0.50039464" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -504,13 +496,13 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24861878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24861878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3859649" sideWeight="0.49960536" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -536,125 +528,279 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage2.java">
+    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+        <state line="31" column="28" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="4755">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OutlinkReducerStage1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+        <state line="45" column="1" selection-start="1421" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="41" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.4599659" vertical-offset="0" max-vertical-offset="660">
+        <state line="47" column="16" selection-start="1954" selection-end="1954" vertical-scroll-proportion="0.0" vertical-offset="335" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/fs/Path.class">
+    <entry file="file://$PROJECT_DIR$/src/OutlinkReducerStage2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="43" selection-start="1601" selection-end="1601" vertical-scroll-proportion="-3.84" vertical-offset="444" max-vertical-offset="975">
+        <state line="9" column="13" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="615">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/fs/FileSystem.class">
+    <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="50" selection-start="4328" selection-end="4328" vertical-scroll-proportion="0.33103448" vertical-offset="984" max-vertical-offset="4935">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/conf/Configuration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="16" selection-start="5899" selection-end="5899" vertical-scroll-proportion="0.36206895" vertical-offset="1650" max-vertical-offset="2595">
-          <folding />
+        <state line="14" column="13" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="255">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LinkCounterReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="885" selection-end="885" vertical-scroll-proportion="0.5849582" vertical-offset="0" max-vertical-offset="359">
+        <state line="28" column="0" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LinkCountMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="101" selection-start="586" selection-end="598" vertical-scroll-proportion="0.13353115" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RankCalculateMapperStage1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="905" selection-end="905" vertical-scroll-proportion="0.65736043" vertical-offset="131" max-vertical-offset="525">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/mapred/JobConf.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="326" column="0" selection-start="13951" selection-end="13951" vertical-scroll-proportion="0.8053892" vertical-offset="4606" max-vertical-offset="4965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SortMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="8" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.70866144" vertical-offset="0" max-vertical-offset="420">
+        <state line="30" column="10" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="585">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SortReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="470" selection-end="470" vertical-scroll-proportion="0.07874016" vertical-offset="0" max-vertical-offset="381">
+        <state line="25" column="14" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="276" column="31" selection-start="10334" selection-end="10334" vertical-scroll-proportion="0.0" vertical-offset="3742" max-vertical-offset="4725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LinkCounterReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RankCalculateReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="34" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="1230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LinkCountMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="101" selection-start="586" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SortReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SortMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="9" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="2058" selection-end="2058" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OutlinkReducerStage1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="35" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/io/Text.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="16" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1470" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/mapred/ReduceTask.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5865" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/mapreduce/Counter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="29" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/conf/Configuration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="16" selection-start="5899" selection-end="5899" vertical-scroll-proportion="0.36206895" vertical-offset="1650" max-vertical-offset="2595" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/mapred/JobConf.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="326" column="0" selection-start="13951" selection-end="13951" vertical-scroll-proportion="0.8053892" vertical-offset="4606" max-vertical-offset="4965" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/mapreduce/Counter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="29" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/io/Text.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="16" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1470" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/mapred/ReduceTask.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5850" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/fs/FileSystem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="50" selection-start="4328" selection-end="4328" vertical-scroll-proportion="-3.84" vertical-offset="984" max-vertical-offset="4935" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/fs/FSInputChecker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="16" selection-start="1504" selection-end="1504" vertical-scroll-proportion="-3.84" vertical-offset="429" max-vertical-offset="1020" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/hadoop-1.0.3/hadoop-core-1.0.3.jar!/org/apache/hadoop/fs/Path.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="11" selection-start="917" selection-end="917" vertical-scroll-proportion="-3.84" vertical-offset="234" max-vertical-offset="975" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OutlinkMapperStage1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="37" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OutlinkReducerStage1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="13" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OutlinkReducerStage2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="17" selection-start="872" selection-end="872" vertical-scroll-proportion="0.4855196" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inputs/test.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="66" selection-start="1936" selection-end="1936" vertical-scroll-proportion="-11.666667" vertical-offset="180" max-vertical-offset="4455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RankCalculateReducerStage1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="43" selection-start="892" selection-end="892" vertical-scroll-proportion="0.45132744" vertical-offset="0" max-vertical-offset="565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RankCalculateMapperStage1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="8" selection-start="834" selection-end="834" vertical-scroll-proportion="0.4152249" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RankCalculateMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="46" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="960">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RankCalculateReducerStage1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="849" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="555">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="50" column="55" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.6366782" vertical-offset="217" max-vertical-offset="795">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RankCalculateReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="34" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.6062992" vertical-offset="759" max-vertical-offset="1230">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="66" column="25" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.73253834" vertical-offset="395" max-vertical-offset="1065">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wikipediapagerank.java">
+    <entry file="file://$PROJECT_DIR$/src/SortMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.975" vertical-offset="585" max-vertical-offset="4260">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="18" column="34" selection-start="643" selection-end="643" vertical-scroll-proportion="0.12776831" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LinkCounterReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="1" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.38330495" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SortReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="32" selection-start="962" selection-end="962" vertical-scroll-proportion="0.43441227" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LinkCountMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="4" selection-start="936" selection-end="936" vertical-scroll-proportion="0.3321976" vertical-offset="0" max-vertical-offset="587">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -664,12 +810,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>wikipediapagerank</last-edited>
+          <last-edited>Wikipediapagerank</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
+                <option value="0.6023166" />
               </list>
             </option>
           </splitter-proportions>

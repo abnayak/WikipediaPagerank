@@ -8,16 +8,27 @@ import java.util.Iterator;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.MapReduceBase;
-import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.Reducer;
-import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.mapred.*;
 
 public class SortReducer extends MapReduceBase implements Reducer<DoubleWritable, Text, Text, DoubleWritable> {
 
+    public static String count="1.0";
+
+    public void configure(JobConf jobConf){
+        count  = jobConf.get("count");
+    }
+
     public void reduce(DoubleWritable key, Iterator<Text> values, OutputCollector<Text, DoubleWritable> output, Reporter reporter) throws IOException {
+        int N = Integer.parseInt(count);
+        double limit = 5.0/N;
+
         while(values.hasNext()){
-            output.collect(values.next(), key);
+            double currentRank = Double.parseDouble(key.toString());
+            double result = currentRank - limit;
+            if ( result >= 0.0000001 )
+                output.collect(values.next(), key);
+            else
+               return;
         }
     }
 }

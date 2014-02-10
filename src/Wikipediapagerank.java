@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -21,13 +23,13 @@ import org.apache.hadoop.mapred.Partitioner;
 
 public class Wikipediapagerank {
 
-    public static int count =0;
+    public static long count = 0;
 
     public static void main(String[] args) throws Exception {
         Wikipediapagerank mainObject = new Wikipediapagerank();
 
-        String input=args[0];
-        String output=args[1];
+        String input=args[1];
+        String output=args[2];
 
         int noOfIterations = 8;
         String Bucket = output + "/results/";
@@ -49,7 +51,7 @@ public class Wikipediapagerank {
         mainObject.OutlinkGenrationJob2(tmpLoc + OutlinkOutputStage1, Bucket + OutlinkOutput );
 
         //Count the total no of pages in the xml dump file
-        mainObject.InlinkCountGenerationJob(input, Bucket + LinkCounterOuput);
+        mainObject.InlinkCountGenerationJob(Bucket + OutlinkOutput, Bucket + LinkCounterOuput);
 
         //Convert the out-link to rank calculation format
         mainObject.RunCalculatorStage1(Bucket + OutlinkOutput, tmpLoc + iterations[0], Bucket + LinkCounterOuput);
@@ -60,8 +62,8 @@ public class Wikipediapagerank {
         }
 
         //Sort the pages according to their page rank for iteration 1 and 8 and write to results
-        mainObject.SortJob(tmpLoc + iterations[1], Bucket + iterations[1]);
-        mainObject.SortJob(tmpLoc + iterations[8], Bucket + iterations[noOfIterations]);
+        mainObject.SortJob(tmpLoc + iterations[1], Bucket + iterations[1],Bucket + LinkCounterOuput);
+        mainObject.SortJob(tmpLoc + iterations[8], Bucket + iterations[noOfIterations],Bucket + LinkCounterOuput);
     }
 
     public void OutlinkGenrationJob1(String input, String output) throws IOException {
@@ -69,6 +71,7 @@ public class Wikipediapagerank {
 
         conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
         conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
+        conf.setJarByClass(Wikipediapagerank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -89,6 +92,7 @@ public class Wikipediapagerank {
 
     public void OutlinkGenrationJob2(String input, String output) throws IOException {
         JobConf conf = new JobConf(Wikipediapagerank.class);
+        conf.setJarByClass(Wikipediapagerank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -109,13 +113,14 @@ public class Wikipediapagerank {
 
     public void InlinkCountGenerationJob(String input, String output) throws IOException{
         JobConf conf = new JobConf(Wikipediapagerank.class);
+        conf.setJarByClass(Wikipediapagerank.class);
 
-        conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
-        conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
+        //conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
+        //conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
-        conf.setInputFormat(XmlInputFormat.class);
+        //conf.setInputFormat(XmlInputFormat.class);
         conf.setMapperClass(LinkCountMapper.class);
         conf.setMapOutputKeyClass(LongWritable.class);
         conf.setMapOutputValueClass(NullWritable.class);
@@ -134,6 +139,7 @@ public class Wikipediapagerank {
 
     public void RunCalculatorStage1 (String input, String output, String linkcountfile) throws IOException {
         JobConf conf = new JobConf(Wikipediapagerank.class);
+        conf.setJarByClass(Wikipediapagerank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -157,6 +163,7 @@ public class Wikipediapagerank {
 
     public void RankCalculatorJob(String input, String output, String linkcountfile) throws IOException{
         JobConf conf = new JobConf(Wikipediapagerank.class);
+        conf.setJarByClass(Wikipediapagerank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -177,8 +184,9 @@ public class Wikipediapagerank {
         JobClient.runJob(conf);
     }
 
-    public void SortJob(String input, String output) throws IOException{
+    public void SortJob(String input, String output, String linkcountfile) throws IOException{
         JobConf conf = new JobConf(Wikipediapagerank.class);
+        conf.setJarByClass(Wikipediapagerank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -201,6 +209,9 @@ public class Wikipediapagerank {
         conf.setOutputValueGroupingComparator(GroupComparator.class);
         conf.setPartitionerClass(FirstPartitioner.class);
 
+        //Get the count value and set the configuration
+        Integer count = readCountFromFile(linkcountfile, conf);
+        conf.set("count", Integer.toString(count));
 
         //Start the hadoop job
         JobClient.runJob(conf);
@@ -246,22 +257,44 @@ public class Wikipediapagerank {
 
     private Integer readCountFromFile (String filepath, Configuration conf) throws IOException
     {
-        String fileName = filepath + "/part-00000";
-        Integer count = 0;
+        String fileName = filepath + "/part-r-00";
+        Integer count = 1;
         BufferedReader br = null;
         FileSystem fs = null;
-        Path path = new Path(fileName);
+        Path path ;//= new Path(fileName);
+        NumberFormat nf = new DecimalFormat("000");
+        Configuration config = new Configuration();
 
         try {
+
+            path = new Path (fileName + nf.format(0));
             fs = path.getFileSystem(new Configuration());
-            br = new BufferedReader(new InputStreamReader(fs.open(path)));
-            String line = br.readLine();
+            String line = "";
+
+            if (!fs.isFile(path)){
+                fileName = filepath + "/part-00";
+            }
+
+            //This will generate file names -00001 to -00999, I hope this is sufficient
+            for (int i=0; i<=999; i++){
+                path = new Path (fileName + nf.format(i));
+                fs = path.getFileSystem(config);
+                if (fs.isFile(path)){
+                    br = new BufferedReader(new InputStreamReader(fs.open(path)));
+                    line = br.readLine();
+
+                    if (line!= null && !line.isEmpty() && line.length() >= 2)
+                        break;
+                }
+            }
+
             if (line != null && !line.isEmpty())
             {
                 String[] splits = line.split("=");
                 count = Integer.parseInt(splits[1]);
                 return count;
             }
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

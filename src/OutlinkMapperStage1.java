@@ -10,6 +10,10 @@ import org.apache.hadoop.mapred.MapReduceBase;
 import org.apache.hadoop.mapred.Mapper;
 import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+
 
 
 public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {
@@ -21,6 +25,7 @@ public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWri
         String page = value.toString();
         String txt = "";
         String title = "";
+        Set<String> set = new HashSet<String>();
 
         title = page.substring(page.indexOf("<title>")+7, page.indexOf("</title>")).replace(" ", "_");
         txt = page.substring(page.indexOf("<text"), page.indexOf("</text>"));
@@ -39,10 +44,14 @@ public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWri
                     && !temp.contains("&") && !temp.contains(":") && !temp.contains(","))
             {
                 if(temp.contains("|")){
-                    output.collect(new Text(temp.substring(0, temp.indexOf("|")).replace(" ", "_")), new Text(title) );
+                    String outlink = temp.substring(0, temp.indexOf("|")).replace(" ", "_");
+                    if ( !outlink.equals(title))
+                        output.collect(new Text(outlink), new Text(title) );
                 }
                 else{
-                    output.collect( new Text(temp.replace(" ","_")), new Text(title) );
+                    String outlink = temp.replace(" ","_");
+                    if ( !outlink.equals(title))
+                        output.collect( new Text(outlink), new Text(title) );
                 }
             }
         }
