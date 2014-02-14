@@ -1,0 +1,34 @@
+Wikipedia Pagerank Implementation using Mapreduce.
+
+Project description:
+
+The project is implemented using AWS EMR AMI version 2.4.2(Hadoop 1.0.3) latest. The project contain package called PageRank. Main class called PageRank.java handles all the MapReduce jobs to calculate the page rank of all the pages in the dataset. The project is divided into following parts:
+
+1. (OutlinkMapperStage1.java, OutlinkReducerStage1.java)
+First task of the project consists of extracting the wiki links and the removal of the red links from the large dataset. To extract the valid data i.e. contents of <page> ... </page> XMLInputFormat class is used which is already provided. In first MapReduce task, the mapper extracts the title of the page which is present in the <title> ... </title> and all the contents of the <text> ... </text> to find all the out-links from current title. A regular expression is written to extract all the valid links from the text tag. In our case There are two types of valid links, [[A]], and [[A|B]]. From both links A is extracted and all the spaces are replaced with the underscore. All the titles are emitted with (title, #) so that for every title one bucket will be created by the combiner. Instead of emitting (title, link) to reducer all the in-links of the page are emitted to reducer i.e. (link, title).
+Now in reducer put all the contents of the bucket in the Set to keep only the unique links. As we emitted # in every title bucket, if # is not present in the bucket then it is not a valid page. Now when the set has # sent as a (title, #) which will go to its specific bucket and all the other links are sent as single ou-links.
+
+2. (OutlinkMapperStage2.java, OutlinkReducerStage2.java)
+This part contains the MapReduce job to generate the out-link adjacency graph. Mapper splits all the value entries of the bucket in (key, value) pair and emits it to the reducer.
+As we are left with all the unique pages there is no need of #, which is then removed from all the links. all the values are combined into StringBuilder and emitted as an output to generate the adjacency graph. This output will be stored in PageRank.outlink.out. 
+
+3. (LinkCountMapper.java, LinkCountReducer.java)
+This part contains the MapReduce job to compute the total number of pages denoted as N in the equation. Receive the output from the OutlinkReducerStage2 and send it to the LinkCountMapper. There are two ways to calculate N. First, look for all the page and title tags in the large dataset, which is not an optimized solution. Second, Instead of counting all the page tags in the large dataset count number of lines in the ou-link graph which contains all the unique titles. LinkCountReducer will then emit N=Number of pages in the dataset and write it to the PageRank.n.out.
+
+4. (RankCalculateMapperStage1.java, RankCalculateReducerStage1.java, RankCalculateMapper.java, RankCalculateReducer.java)
+This MapReduce job is required to calculate the PageRank for 8 iterations. To initialize the page ranks of all the pages, we introduce  initial rank for all the pages to 1/N. The output of the Reducer is of the format <title> <initialized rank> <out-links> and is stored for further calculation in tmp/PageRank.iter0.out. 
+For the next 8 iterations, split the values part into title, rank and out-links. Now, count all the out-links for that page title and calculate the rankVote of the current page for all of its out-links, which is rankVote = rank / outlinkCount. Now emit this vote to all the out-links of that page.
+Now in Reducer add all the rank votes from all the links and count the page rank of that page. Formula for the page rank is,
+PR(p1) = (1 - d)/N + (PR(p2)/L(p2) + PR(p3)/L(p3) + ...) where
+d = damping factor
+PR(p1) = page rank of page p1
+N = total number of pages
+L(p2) = total number of ou-links on page p2
+Once we are done with the page rank calculation, emit the newly calculated page rank values in the format <title> <new rank> <out-links>.
+
+5. (SortMapper.java, SortReducer.java)
+After 8 iterations sorting is performed on iter1 and iter8 in this MapReduce job. Mapper of this part emits page rank (rank, page) in the sorted order. To emit the page ranks in the descending order we have overridden the compare() method in KeyComparator class.
+Reducer now receives all the page ranks in descending order and compares if the page rank is grater than 5/N. If the rank is greater than the 5/N value then reducer emits the page rank as (page title, rank).
+
+As the MapReduce splits all the output in parts we merged the corresponding outputs in single files. We have created new file using FSDataOutputStream to store all the data from output parts to single file. By opening a handle for every file some chunk of bytes are transferred to output file using read() method of FSDataInputStream class. All the output files PageRank.outlink, PageRank.n.out, PageRank.iter1.out, PageRank.iter8.out are stored in the results directory.
+
