@@ -1,3 +1,5 @@
+package PageRank;
+
 import java.io.IOException;
 import java.nio.charset.CharacterCodingException;
 import java.util.ArrayList;
@@ -17,10 +19,10 @@ public class LinkCountMapper extends MapReduceBase implements Mapper<LongWritabl
 
     public void map(LongWritable key, Text value, OutputCollector<LongWritable, NullWritable> output, Reporter reporter) throws IOException {
 
-        String page = value.toString();
+        //String page = value.toString();
         final LongWritable one = new LongWritable(1);
 
-        String title = "";
+        //String title = "";
 
         output.collect(one, NullWritable.get());
     }

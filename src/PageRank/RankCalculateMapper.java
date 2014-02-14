@@ -1,3 +1,5 @@
+package PageRank;
+
 import java.io.IOException;
 import java.nio.charset.CharacterCodingException;
 import java.util.ArrayList;
@@ -40,12 +42,12 @@ public class RankCalculateMapper extends MapReduceBase implements Mapper<LongWri
             rankVote = Double.parseDouble(rank)/outlinkCount;
         }
 
-        //send this to notify if the page is a existing page or not(to avoid red links)
+        //Send this to notify if the page is a existing page or not(to avoid red links)
         output.collect(new Text(title), new Text("$\t"));
 
-        //reconstruct the page title, rank and outlinks
+        //Reconstruct the page title, rank and outlinks
         if ( rankOutlinks.equals("") ){
-            //this signifies this page is sink
+            //This signifies this page is sink
             output.collect(new Text(title), new Text("#"));
         }else{
             output.collect(new Text(title), new Text("#" + rankOutlinks));

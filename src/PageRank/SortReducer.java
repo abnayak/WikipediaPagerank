@@ -1,3 +1,5 @@
+package PageRank;
+
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -23,9 +25,9 @@ public class SortReducer extends MapReduceBase implements Reducer<DoubleWritable
         double limit = 5.0/N;
 
         while(values.hasNext()){
-            double currentRank = Double.parseDouble(key.toString());
-            double result = currentRank - limit;
-            if ( result >= 0.0000001 )
+            double result = Double.parseDouble(key.toString());
+            //double result = currentRank - limit;
+            if (result >  limit)
                 output.collect(values.next(), key);
             else
                return;

@@ -1,3 +1,5 @@
+package PageRank;
+
 import java.io.IOException;
 import java.nio.charset.CharacterCodingException;
 import java.util.ArrayList;
@@ -28,7 +30,12 @@ public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWri
         Set<String> set = new HashSet<String>();
 
         title = page.substring(page.indexOf("<title>")+7, page.indexOf("</title>")).replace(" ", "_");
-        txt = page.substring(page.indexOf("<text"), page.indexOf("</text>"));
+
+        int startIndex = page.indexOf("<text");
+        int endIndex = page.indexOf("</text>");
+        if ( startIndex != -1 && endIndex != -1)
+            txt = page.substring(startIndex, endIndex );
+
         Pattern p = Pattern.compile("\\[\\[(.*?)\\]\\]");
         Matcher m = p.matcher(txt);
 
@@ -39,9 +46,11 @@ public class OutlinkMapperStage1 extends MapReduceBase implements Mapper<LongWri
 
             String temp = m.group(1);
 
-            if(temp != null & !temp.isEmpty() && temp.charAt(0) != '#' && temp.charAt(0) != ',' && temp.charAt(0) != '.' && temp.charAt(0) != '&'
-                    && temp.charAt(0) != '\\' && temp.charAt(0) != '-' && temp.charAt(0) != '{'
-                    && !temp.contains("&") && !temp.contains(":") && !temp.contains(","))
+//            if(temp != null & !temp.isEmpty() && temp.charAt(0) != '#' && temp.charAt(0) != ',' && temp.charAt(0) != '.' && temp.charAt(0) != '&'
+//                    && temp.charAt(0) != '\\' && temp.charAt(0) != '-' && temp.charAt(0) != '{'
+//                    && !temp.contains("&") && !temp.contains(":") && !temp.contains(","))
+//            {
+            if(temp != null && !temp.isEmpty())
             {
                 if(temp.contains("|")){
                     String outlink = temp.substring(0, temp.indexOf("|")).replace(" ", "_");

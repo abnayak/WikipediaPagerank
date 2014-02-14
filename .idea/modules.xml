@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wikipediapagerank.iml" filepath="$PROJECT_DIR$/wikipediapagerank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PageRank.iml" filepath="$PROJECT_DIR$/PageRank.iml" />
     </modules>
   </component>
 </project>

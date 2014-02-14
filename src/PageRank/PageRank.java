@@ -1,35 +1,33 @@
+package PageRank;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
 
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
-import org.apache.hadoop.util.*;
 import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapred.FileOutputFormat;
 import org.apache.hadoop.mapred.JobClient;
 import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.Mapper;
-import org.apache.hadoop.mapred.Reducer;
-import org.apache.hadoop.mapred.TextInputFormat;
-import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.hadoop.mapred.Partitioner;
 
 
-public class Wikipediapagerank {
+public class PageRank {
 
     public static long count = 0;
 
     public static void main(String[] args) throws Exception {
-        Wikipediapagerank mainObject = new Wikipediapagerank();
+        PageRank mainObject = new PageRank();
 
-        String input=args[1];
-        String output=args[2];
+        String input=args[0];
+        String output=args[1];
+//        String input="s3n://spring-2014-ds/data";
+//        String output=args[0];
 
         int noOfIterations = 8;
         String Bucket = output + "/results/";
@@ -40,6 +38,9 @@ public class Wikipediapagerank {
         String OutlinkOutputStage1="PageRank.outlink.stage1.out";
         String LinkCounterOuput="PageRank.n.out";
 
+        String Iter1Sorted = "PageRank.iter1.sorted.out";
+        String Iter8Sorted = "PageRank.iter8.sorted.out";
+
         String[] iterations = new String[noOfIterations+1];
 
         for ( int i =0; i <= noOfIterations ; i++){
@@ -48,30 +49,38 @@ public class Wikipediapagerank {
 
         //Call to the in-link generation Hadoop task
         mainObject.OutlinkGenrationJob1(input, tmpLoc + OutlinkOutputStage1);
-        mainObject.OutlinkGenrationJob2(tmpLoc + OutlinkOutputStage1, Bucket + OutlinkOutput );
+        mainObject.OutlinkGenrationJob2(tmpLoc + OutlinkOutputStage1, tmpLoc + OutlinkOutput );
 
         //Count the total no of pages in the xml dump file
-        mainObject.InlinkCountGenerationJob(Bucket + OutlinkOutput, Bucket + LinkCounterOuput);
+        mainObject.InlinkCountGenerationJob(tmpLoc + OutlinkOutput, tmpLoc + LinkCounterOuput);
 
         //Convert the out-link to rank calculation format
-        mainObject.RunCalculatorStage1(Bucket + OutlinkOutput, tmpLoc + iterations[0], Bucket + LinkCounterOuput);
+        mainObject.RunCalculatorStage1(tmpLoc + OutlinkOutput, tmpLoc + iterations[0], tmpLoc + LinkCounterOuput);
 
         //calculate the Rank for #noOfIteration times
         for ( int i =1; i <= noOfIterations ; i++){
-            mainObject.RankCalculatorJob(tmpLoc + iterations[i-1], tmpLoc +iterations[i], Bucket + LinkCounterOuput);
+            mainObject.RankCalculatorJob(tmpLoc + iterations[i-1], tmpLoc +iterations[i], tmpLoc + LinkCounterOuput);
         }
 
         //Sort the pages according to their page rank for iteration 1 and 8 and write to results
-        mainObject.SortJob(tmpLoc + iterations[1], Bucket + iterations[1],Bucket + LinkCounterOuput);
-        mainObject.SortJob(tmpLoc + iterations[8], Bucket + iterations[noOfIterations],Bucket + LinkCounterOuput);
+        mainObject.SortJob(tmpLoc + iterations[1], tmpLoc + Iter1Sorted, tmpLoc + LinkCounterOuput);
+        mainObject.SortJob(tmpLoc + iterations[8], tmpLoc + Iter8Sorted, tmpLoc + LinkCounterOuput);
+
+
+        //Merge the files of the outputs into one file
+        mainObject.MergeFiles(tmpLoc + OutlinkOutput, Bucket + OutlinkOutput);
+        mainObject.MergeFiles(tmpLoc + LinkCounterOuput, Bucket + LinkCounterOuput);
+        mainObject.MergeFiles(tmpLoc + Iter1Sorted, Bucket + iterations[1]);
+        mainObject.MergeFiles(tmpLoc + Iter8Sorted, Bucket + iterations[8]);
+
     }
 
     public void OutlinkGenrationJob1(String input, String output) throws IOException {
-        JobConf conf = new JobConf(Wikipediapagerank.class);
+        JobConf conf = new JobConf(PageRank.class);
 
         conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
         conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
-        conf.setJarByClass(Wikipediapagerank.class);
+        conf.setJarByClass(PageRank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -91,8 +100,8 @@ public class Wikipediapagerank {
     }
 
     public void OutlinkGenrationJob2(String input, String output) throws IOException {
-        JobConf conf = new JobConf(Wikipediapagerank.class);
-        conf.setJarByClass(Wikipediapagerank.class);
+        JobConf conf = new JobConf(PageRank.class);
+        conf.setJarByClass(PageRank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -112,8 +121,8 @@ public class Wikipediapagerank {
 
 
     public void InlinkCountGenerationJob(String input, String output) throws IOException{
-        JobConf conf = new JobConf(Wikipediapagerank.class);
-        conf.setJarByClass(Wikipediapagerank.class);
+        JobConf conf = new JobConf(PageRank.class);
+        conf.setJarByClass(PageRank.class);
 
         //conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
         //conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
@@ -138,8 +147,8 @@ public class Wikipediapagerank {
     }
 
     public void RunCalculatorStage1 (String input, String output, String linkcountfile) throws IOException {
-        JobConf conf = new JobConf(Wikipediapagerank.class);
-        conf.setJarByClass(Wikipediapagerank.class);
+        JobConf conf = new JobConf(PageRank.class);
+        conf.setJarByClass(PageRank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -162,8 +171,8 @@ public class Wikipediapagerank {
 
 
     public void RankCalculatorJob(String input, String output, String linkcountfile) throws IOException{
-        JobConf conf = new JobConf(Wikipediapagerank.class);
-        conf.setJarByClass(Wikipediapagerank.class);
+        JobConf conf = new JobConf(PageRank.class);
+        conf.setJarByClass(PageRank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -185,8 +194,8 @@ public class Wikipediapagerank {
     }
 
     public void SortJob(String input, String output, String linkcountfile) throws IOException{
-        JobConf conf = new JobConf(Wikipediapagerank.class);
-        conf.setJarByClass(Wikipediapagerank.class);
+        JobConf conf = new JobConf(PageRank.class);
+        conf.setJarByClass(PageRank.class);
 
         //Configure the inlink generation mapper
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -308,5 +317,68 @@ public class Wikipediapagerank {
             }
         }
         return count;
+    }
+
+    private void MergeFiles(String input, String output) throws  IOException {
+        String fileName = input + "/part-r-00";
+        NumberFormat nf = new DecimalFormat("000");
+
+        Configuration conf = new Configuration();
+        FileSystem outFS = null;
+
+        try {
+
+            Path outFile = new Path(output);
+            outFS = outFile.getFileSystem(new Configuration());
+            if (outFS.exists(outFile)){
+                System.out.println(outFile + " already exists");
+                System.exit(1);
+            }
+
+            FSDataOutputStream out = outFS.create(outFile);
+
+            Path inFile = new Path (fileName + nf.format(0));
+            FileSystem inFS = inFile.getFileSystem(new Configuration());
+
+            if (!inFS.exists(inFile)){
+                fileName = input + "/part-00";
+            }
+
+            //This will generate file names -00001 to -00999, I hope this is sufficient
+            for (int i=0; i<=999; i++){
+
+                inFile = new Path (fileName + nf.format(i));
+                inFS = inFile.getFileSystem(new Configuration());
+
+                if (inFS.isFile(inFile)){
+
+                    int bytesRead=0;
+                    byte[] buffer = new byte[4096];
+
+                    FSDataInputStream in = inFS.open(inFile);
+
+                    while ((bytesRead = in.read(buffer)) > 0) {
+                        out.write(buffer, 0, bytesRead);
+                    }
+
+                    in.close();
+                }else{
+                    break;
+                }
+
+                inFS.close();
+            }
+
+            out.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                outFS.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
   }
